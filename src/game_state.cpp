@@ -64,11 +64,8 @@ namespace kg {
                 accumulator -= dt;
             }
 
-            // Don't make render call if window is closed.
-            if (_window->isOpen()) {
-                interpolation = accumulator / dt;
-                render(interpolation);
-            }
+            interpolation = accumulator / dt;
+            render(interpolation);
         }
     }
 
@@ -120,6 +117,8 @@ namespace kg {
     }
 
     void GameState::render(float dt) {
+        if (!_window->isOpen()) return;
+
         //****************************
         // This is just to display FPS
         _frames++;
@@ -130,10 +129,10 @@ namespace kg {
             _fpsClock.restart();
             _frames = 0;
         }
+        //****************************
         std::stringstream ss;
         ss << "UPS: " << _ups << " FPS: " << _fps << " (approx.)";
         _stats.setString(ss.str());
-        //****************************
 
         _window->clear(sf::Color::Red);
         _window->draw(_sprite);

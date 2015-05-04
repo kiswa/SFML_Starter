@@ -1,6 +1,3 @@
-#include <memory>
-#include <stack>
-#include <string>
 #include "game.hpp"
 
 int main(int argc, char** argv) {

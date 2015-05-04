@@ -46,6 +46,8 @@ namespace kg {
     }
 
     void PauseState::render(float dt) {
+        if (!_window->isOpen()) return;
+
         _window->clear(sf::Color::Black);
         _window->draw(_text);
         _window->display();
