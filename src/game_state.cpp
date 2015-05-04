@@ -77,8 +77,7 @@ namespace kg {
             }
             if (sf::Event::KeyPressed == evt.type) {
                 if (sf::Keyboard::Escape == evt.key.code) {
-                    StateRef pauseState(new PauseState(_window, _machine));
-                    _machine->startState(std::move(pauseState), false);
+                    _machine->startState(StateRef(new PauseState(_window, _machine)), false);
                 }
             }
         }
