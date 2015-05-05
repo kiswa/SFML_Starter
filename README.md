@@ -17,8 +17,3 @@ All source files are in the `src` directory.
  * `game_state.*pp` The GameState class is a *simple* implementation of a game state to show how it might be used.
  * `pause_state.*pp` The PauseState class is just to demonstrate changing states without replacing the current state.
 
-## Notes
-
-Rather than type out long types like `std::shared_ptr<StateMachine>` I have made a few `typedef`s that simplify this. For example, the previous type would just be `StateMachineRef`.
-
-The definitions of these types are found in `state_machine.hpp` and `state.hpp`.
