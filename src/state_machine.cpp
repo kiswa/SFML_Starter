@@ -7,7 +7,7 @@ namespace kg {
         }
 
         if (!isReplacing) {
-            _states->top()->pause();
+            _states.top()->pause();
         }
 
         _states.push(std::move(newState));
