@@ -6,6 +6,10 @@ namespace kg {
             _states.pop();
         }
 
+        if (!isReplacing) {
+            _states->top()->pause();
+        }
+
         _states.push(std::move(newState));
         _states.top()->start();
     }
