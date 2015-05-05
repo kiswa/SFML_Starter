@@ -2,12 +2,12 @@
 
 namespace kg {
     void StateMachine::startState(StateRef newState, bool isReplacing) {
-        if (isReplacing && !_states.empty()) {
-            _states.pop();
-        }
-
-        if (!isReplacing) {
-            _states.top()->pause();
+        if (!_states.empty()) {
+            if (isReplacing) {
+                _states.pop();
+            } else {
+                _states.top()->pause();
+            }
         }
 
         _states.push(std::move(newState));
