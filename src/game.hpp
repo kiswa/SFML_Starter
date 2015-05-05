@@ -21,7 +21,7 @@ namespace kg {
             Game(int width, int height, std::string title);
 
         private:
-            GameDataRef _data;
+            GameDataRef _data = std::make_shared<GameData>();
     };
 }
 
