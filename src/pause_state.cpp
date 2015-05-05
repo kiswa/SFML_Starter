@@ -1,8 +1,8 @@
 #include "pause_state.hpp"
 
 namespace kg {
-    PauseState::PauseState(WindowRef window, StateMachineRef machine)
-        : _window(window), _machine(machine) { }
+    PauseState::PauseState(GameDataRef data)
+        : _data(data) { }
 
     void PauseState::start() {
         init();
@@ -16,11 +16,11 @@ namespace kg {
         _text.setString("This is the Pause state! Esc to return to Game.");
         _text.setCharacterSize(24);
         _text.setColor(sf::Color::Red);
-        _text.setPosition(4, _window->getSize().y - 30);
+        _text.setPosition(4, _data->window.getSize().y - 30);
     }
 
     void PauseState::mainLoop() {
-        while (_window->isOpen()) {
+        while (_data->window.isOpen()) {
             handleInput();
             update(0);
             render(0);
@@ -29,14 +29,14 @@ namespace kg {
 
     void PauseState::handleInput() {
         sf::Event evt;
-        while (_window->pollEvent(evt)) {
+        while (_data->window.pollEvent(evt)) {
             if (sf::Event::Closed == evt.type) {
-                _window->close();
+                _data->window.close();
             }
 
             if (sf::Event::KeyPressed == evt.type) {
                 if (sf::Keyboard::Escape == evt.key.code) {
-                    _machine->exitState();
+                    _data->machine.exitState();
                 }
             }
         }
@@ -46,10 +46,10 @@ namespace kg {
     }
 
     void PauseState::render(float dt) {
-        if (!_window->isOpen()) return;
+        if (!_data->window.isOpen()) return;
 
-        _window->clear(sf::Color::Black);
-        _window->draw(_text);
-        _window->display();
+        _data->window.clear(sf::Color::Black);
+        _data->window.draw(_text);
+        _data->window.display();
     }
 }

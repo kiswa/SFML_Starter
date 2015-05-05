@@ -3,12 +3,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "state.hpp"
-#include "state_machine.hpp"
+#include "game.hpp"
 
 namespace kg {
     class PauseState : public State {
         public:
-            PauseState(WindowRef window, StateMachineRef machine);
+            PauseState(GameDataRef data);
 
             void start();
 
@@ -17,8 +17,7 @@ namespace kg {
             void render(float dt);
 
         private:
-            WindowRef _window;
-            StateMachineRef _machine;
+            GameDataRef _data;
 
             sf::Font _font;
             sf::Text _text;

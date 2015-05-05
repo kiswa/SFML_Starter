@@ -5,15 +5,23 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "state_machine.hpp"
+#include "asset_manager.hpp"
 
 namespace kg {
+    struct GameData {
+        StateMachine machine;
+        sf::RenderWindow window;
+        AssetManager assets;
+    };
+
+    typedef std::shared_ptr<GameData> GameDataRef;
+
     class Game {
         public:
             Game(int width, int height, std::string title);
 
         private:
-            StateMachineRef _machine = std::make_shared<StateMachine>();
-            WindowRef _window = std::make_shared<sf::RenderWindow>();
+            GameDataRef _data;
     };
 }
 
