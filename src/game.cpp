@@ -4,8 +4,8 @@
 namespace kg {
     Game::Game(int width, int height, std::string title) {
         _data->window.create(sf::VideoMode(width, height), title);
-
         _data->machine.addState(StateRef(new GameState(_data)));
+
         run();
     }
 
@@ -32,7 +32,7 @@ namespace kg {
             accumulator += frameTime;
 
             while (accumulator >= dt) {
-#ifdef DEBUG // This is to display UPS
+#ifdef DEBUG // This calculates UPS
                 _updates++;
                 float time = _upsClock.getElapsedTime().asSeconds();
                 if (time >= 1.0f) {
@@ -48,7 +48,7 @@ namespace kg {
                 accumulator -= dt;
             }
 
-#ifdef DEBUG // This is to display FPS
+#ifdef DEBUG // This calculates FPS
             _frames++;
             float time = _fpsClock.getElapsedTime().asSeconds();
             if (time >= 1.0f) {

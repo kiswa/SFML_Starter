@@ -12,8 +12,8 @@ namespace kg {
 
             void init();
 
-            // No pause() or resume() methods here as this is a
-            // very simple example of a game state.
+            // No pause() or resume() methods here as this
+            // is a very simple example of a game state.
 
             void handleInput();
             void update(float dt);
