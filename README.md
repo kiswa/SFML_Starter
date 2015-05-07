@@ -20,3 +20,8 @@ All source files are in the `src` directory.
  * `game_state.*pp` The **GameState** class is a *simple* implementation of a game state to show how it might be used.
  * `pause_state.*pp` The **PauseState** class is just to demonstrate changing states without replacing the current state.
 
+### Credits
+
+The "alien" image is [courtesy of Kenney](http://www.kenney.nl/assets/alien-ufo-pack).
+
+The font used is [Fira Mono from Mozilla](https://github.com/mozilla/Fira/tree/master/otf) (specifically, `FiraMono-Regular.otf`).
