@@ -4,7 +4,7 @@ A very simple starter setup for an [SFML](http://sfml-dev.org/) game with a mini
 
 ## Use
 
-Clone the repo `git clone https://github.com/kiswa/SFML_Starter`, enter the directory, and run `cmake .`. This should generate the necessary project files to build on your system.
+Clone the repo `git clone https://github.com/kiswa/SFML_Starter`, enter the directory you cloned into, and run `cmake .` (note the ` .` after the command). This should generate the necessary project files to build on your system.
 
 For Linux, follow this with `make` and you will have an executable named `sfml` which you can run to see the demo.
 
