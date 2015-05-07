@@ -10,7 +10,7 @@ namespace kg {
         public:
             PauseState(GameDataRef data);
 
-            void start();
+            void init();
 
             void handleInput();
             void update(float dt);
@@ -19,11 +19,7 @@ namespace kg {
         private:
             GameDataRef _data;
 
-            sf::Font _font;
             sf::Text _text;
-
-            void init();
-            void mainLoop();
     };
 }
 

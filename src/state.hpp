@@ -2,11 +2,13 @@
 #define STATE_HPP
 
 #include <memory>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 namespace kg {
     class State {
     public:
-        virtual void start() = 0;
+        virtual void init() = 0;
+
         virtual void pause() { }
         virtual void resume() { }
 

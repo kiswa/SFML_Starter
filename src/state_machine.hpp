@@ -14,11 +14,15 @@ namespace kg {
             StateMachine() { }
             ~StateMachine() { }
 
-            void startState(StateRef newState, bool isReplacing = true);
-            void exitState();
+            void addState(StateRef newState, bool isReplacing = true);
+            void removeState();
+            void checkStates(); // Run at end of each game loop.
+
+            StateRef& getActiveState();
 
         private:
             std::stack<StateRef> _states;
+            bool _isRemoving;
     };
 }
 
