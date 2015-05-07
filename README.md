@@ -1,10 +1,12 @@
 # SFML Starter
 
-A very simple (Linux-based) starter setup for an [SFML](http://sfml-dev.org/) game with a minimal finite state machine (FSM).
+A very simple starter setup for an [SFML](http://sfml-dev.org/) game with a minimal finite state machine (FSM).
 
 ## Use
 
-Clone the repo `git clone https://github.com/kiswa/SFML_Starter`, enter the directory, and run `make`. This will create an executable named `sfml` which you can run to see the demo.
+Clone the repo `git clone https://github.com/kiswa/SFML_Starter`, enter the directory, and run `cmake .`. This should generate the necessary project files to build on your system.
+
+For Linux, follow this with `make` and you will have an executable named `sfml` which you can run to see the demo.
 
 ## What's Included
 
