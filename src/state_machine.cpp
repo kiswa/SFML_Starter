@@ -6,7 +6,6 @@ namespace kg {
         _isReplacing = isReplacing;
 
         _newState = std::move(newState);
-
     }
 
     void StateMachine::removeState() {
@@ -35,7 +34,6 @@ namespace kg {
             _states.top()->init();
             _isAdding = false;
         }
-
     }
 
     StateRef& StateMachine::getActiveState() {

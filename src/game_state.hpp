@@ -24,7 +24,9 @@ namespace kg {
 
             sf::Sprite _sprite;
             sf::Text _text;
+#ifdef DEBUG
             sf::Text _stats;
+#endif
     };
 }
 

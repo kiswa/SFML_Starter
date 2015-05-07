@@ -2,7 +2,6 @@
 #define ASSET_MANAGER_HPP
 
 #include <map>
-#include <memory>
 
 namespace sf {
     class Texture;

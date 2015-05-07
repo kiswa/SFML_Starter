@@ -1,7 +1,7 @@
 #ifndef PAUSE_STATE_HPP
 #define PAUSE_STATE_HPP
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include "state.hpp"
 #include "game.hpp"
 
@@ -13,7 +13,7 @@ namespace kg {
             void init();
 
             void handleInput();
-            void update(float dt);
+            void update(float dt) { } // Nothing to do here.
             void render(float dt);
 
         private:

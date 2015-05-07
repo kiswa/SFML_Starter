@@ -72,7 +72,7 @@ namespace kg {
         _data->window.draw(_sprite);
         _data->window.draw(_text);
 #ifdef DEBUG
-        _data->window.draw(_stats); // Show UPS: # FPS: #
+        _data->window.draw(_stats); // Show "UPS: # FPS: #"
 #endif
         _data->window.display();
     }

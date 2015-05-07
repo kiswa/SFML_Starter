@@ -16,7 +16,7 @@ namespace kg {
 
             void addState(StateRef newState, bool isReplacing = true);
             void removeState();
-            void checkStates(); // Run at end of each game loop.
+            void checkStates(); // Run at start of each loop in Game.cpp.
 
             StateRef& getActiveState();
 

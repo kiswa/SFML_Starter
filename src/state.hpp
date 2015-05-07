@@ -1,8 +1,6 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-#include <memory>
-
 namespace kg {
     class State {
     public:

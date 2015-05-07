@@ -32,9 +32,7 @@ namespace kg {
             accumulator += frameTime;
 
             while (accumulator >= dt) {
-#ifdef DEBUG
-                //****************************
-                // This is just to display UPS
+#ifdef DEBUG // This is to display UPS
                 _updates++;
                 float time = _upsClock.getElapsedTime().asSeconds();
                 if (time >= 1.0f) {
@@ -43,7 +41,6 @@ namespace kg {
                     _upsClock.restart();
                     _updates = 0;
                 }
-                //****************************
 #endif
                 _data->machine.getActiveState()->handleInput();
                 _data->machine.getActiveState()->update(dt);
@@ -51,9 +48,7 @@ namespace kg {
                 accumulator -= dt;
             }
 
-#ifdef DEBUG
-            //****************************
-            // This is just to display FPS
+#ifdef DEBUG // This is to display FPS
             _frames++;
             float time = _fpsClock.getElapsedTime().asSeconds();
             if (time >= 1.0f) {
@@ -62,7 +57,6 @@ namespace kg {
                 _fpsClock.restart();
                 _frames = 0;
             }
-            //****************************
 #endif
             interpolation = accumulator / dt;
             _data->machine.getActiveState()->render(interpolation);

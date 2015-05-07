@@ -29,9 +29,6 @@ namespace kg {
         }
     }
 
-    void PauseState::update(float dt) {
-    }
-
     void PauseState::render(float dt) {
         _data->window.clear(sf::Color::Black);
         _data->window.draw(_text);
