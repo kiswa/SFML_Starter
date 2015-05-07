@@ -11,6 +11,7 @@ namespace kg {
         _data->assets.loadTexture("alien", "assets/test.png");
 
         _text.setFont(_data->assets.getFont("FiraMono"));
+        _text.setString("This is the Game state! Esc to Pause");
         _text.setCharacterSize(24);
         _text.setColor(sf::Color::Black);
         _text.setPosition(4, _data->window.getSize().y - 30);
@@ -67,8 +68,6 @@ namespace kg {
         ss << "UPS: " << _data->UPS << " FPS: " << _data->FPS << " (approx.)";
         _stats.setString(ss.str());
 #endif
-        _text.setString("This is the Game state! Esc to Pause");
-
         _data->window.clear(sf::Color::Red);
         _data->window.draw(_sprite);
         _data->window.draw(_text);

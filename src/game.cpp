@@ -19,6 +19,8 @@ namespace kg {
         _fpsClock.restart();
 
         while (_data->window.isOpen()) {
+            _data->machine.checkStates();
+
             newTime = _clock.getElapsedTime().asSeconds();
             frameTime = newTime - currentTime;
 
@@ -64,8 +66,6 @@ namespace kg {
 #endif
             interpolation = accumulator / dt;
             _data->machine.getActiveState()->render(interpolation);
-
-            _data->machine.checkStates();
         }
     }
 }

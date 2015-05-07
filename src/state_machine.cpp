@@ -2,16 +2,11 @@
 
 namespace kg {
     void StateMachine::addState(StateRef newState, bool isReplacing) {
-        if (!_states.empty()) {
-            if (isReplacing) {
-                _states.pop();
-            } else {
-                _states.top()->pause();
-            }
-        }
+        _isAdding = true;
+        _isReplacing = isReplacing;
 
-        _states.push(std::move(newState));
-        _states.top()->init();
+        _newState = std::move(newState);
+
     }
 
     void StateMachine::removeState() {
@@ -19,14 +14,28 @@ namespace kg {
     }
 
     void StateMachine::checkStates() {
-        if (!_isRemoving || _states.empty()) return;
-
-        _states.pop();
-        if (!_states.empty()) {
-            _states.top()->resume();
+        if (_isRemoving && !_states.empty()) {
+            _states.pop();
+            if (!_states.empty()) {
+                _states.top()->resume();
+            }
+            _isRemoving = false;
         }
 
-        _isRemoving = false;
+        if (_isAdding) {
+            if (!_states.empty()) {
+                if (_isReplacing) {
+                    _states.pop();
+                } else {
+                    _states.top()->pause();
+                }
+            }
+
+            _states.push(std::move(_newState));
+            _states.top()->init();
+            _isAdding = false;
+        }
+
     }
 
     StateRef& StateMachine::getActiveState() {

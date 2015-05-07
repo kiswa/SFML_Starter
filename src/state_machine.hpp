@@ -22,7 +22,10 @@ namespace kg {
 
         private:
             std::stack<StateRef> _states;
+            StateRef _newState;
+
             bool _isRemoving;
+            bool _isAdding, _isReplacing;
     };
 }
 
