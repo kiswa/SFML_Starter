@@ -2,7 +2,6 @@
 #define STATE_HPP
 
 #include <memory>
-#include <SFML/Graphics/RenderWindow.hpp>
 
 namespace kg {
     class State {
