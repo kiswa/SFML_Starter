@@ -38,6 +38,8 @@ namespace kg {
             GameDataRef _data = std::make_shared<GameData>();
 
             void run();
+            void calculateUpdatesPerSecond();
+            void calculateFramesPerSecond();
     };
 }
 
