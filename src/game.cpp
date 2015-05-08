@@ -30,6 +30,7 @@ namespace kg {
 
             while (accumulator >= dt) {
                 calculateUpdatesPerSecond();
+
                 _data->machine.getActiveState()->handleInput();
                 _data->machine.getActiveState()->update(dt);
 
