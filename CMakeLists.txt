@@ -1,11 +1,31 @@
-cmake_minimum_required(VERSION 3.2)
+# Project Configuration
 
-project(sfml_starter)
-find_package(SFML REQUIRED)
+# Project name
+set(PNAME MySfmlGame)
+
+# SFML version - set the minimum version you'd like to use.
+set(SFML_VERSION 2.2)
+
+# SFML components - list all you want to use.
+# The provided framework requires graphics, window, and system.
+set(SFML_COMPONENTS graphics window system)
+
+# You shouldn't have to edit anything below this line to get started.
+
+cmake_minimum_required(VERSION 3.2)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+project(${PNAME})
+find_package(SFML ${SFML_VERSION} COMPONENTS ${SFML_COMPONENTS} REQUIRED)
+
+include_directories(${SFML_INCLUDE_DIR})
 
 file(GLOB SOURCES "src/*.cpp")
-add_executable("sfml" ${SOURCES})
-target_link_libraries(sfml sfml-graphics sfml-window sfml-system)
+add_executable(${PNAME} ${SOURCES})
+target_link_libraries(${PNAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
-set_property(TARGET sfml PROPERTY CXX_STANDARD 11) # Use C++11
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall") # Show all warnings
+set_property(TARGET ${PNAME} PROPERTY CXX_STANDARD 11) # Use C++11
+
+if(NOT WIN32 OR MINGW)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall") # Show all warnings for GCC
+endif()
