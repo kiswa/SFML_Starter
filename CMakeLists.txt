@@ -4,7 +4,7 @@
 set(PNAME SfmlStarter)
 
 # SFML version - set the minimum version you'd like to use.
-set(SFML_VERSION 2.2)
+set(SFML_VERSION 2.3)
 
 # SFML components - list all you want to use.
 # The provided framework requires graphics, window, and system.
