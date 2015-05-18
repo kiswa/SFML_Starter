@@ -1,7 +1,7 @@
 # Project Configuration
 
 # Project name
-set(PNAME MySfmlGame)
+set(PNAME SfmlStarter)
 
 # SFML version - set the minimum version you'd like to use.
 set(SFML_VERSION 2.2)
