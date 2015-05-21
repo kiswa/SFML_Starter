@@ -12,6 +12,9 @@ namespace kg {
 
             void init();
 
+            // Again, no pause() or resume() methods.
+            // This state only exists to demonstrate a state transition.
+
             void handleInput();
             void update(float dt) { } // Nothing to do here.
             void render(float dt);

@@ -34,12 +34,13 @@ namespace kg {
             sf::Clock _fpsClock;
             int _updates;
             int _frames;
+
+            void calculateUpdatesPerSecond();
+            void calculateFramesPerSecond();
 #endif
             GameDataRef _data = std::make_shared<GameData>();
 
             void run();
-            void calculateUpdatesPerSecond();
-            void calculateFramesPerSecond();
     };
 }
 

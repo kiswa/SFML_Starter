@@ -17,7 +17,7 @@ namespace kg {
         float accumulator = 0.0f;
 
         while (_data->window.isOpen()) {
-            _data->machine.checkStates();
+            _data->machine.processStateChanges();
 
             newTime = _clock.getElapsedTime().asSeconds();
             frameTime = newTime - currentTime;
@@ -45,29 +45,29 @@ namespace kg {
         }
     }
 
+#ifdef DEBUG
     void Game::calculateUpdatesPerSecond() {
-#ifdef DEBUG
-                _updates++;
-                float time = _upsClock.getElapsedTime().asSeconds();
-                if (time >= 1.0f) {
-                    _data->UPS = _updates;
+        _updates++;
+        float time = _upsClock.getElapsedTime().asSeconds();
+        if (time >= 1.0f) {
+            _data->UPS = _updates;
 
-                    _upsClock.restart();
-                    _updates = 0;
-                }
-#endif
+            _upsClock.restart();
+            _updates = 0;
+        }
     }
+#endif
 
+#ifdef DEBUG
     void Game::calculateFramesPerSecond() {
-#ifdef DEBUG
-            _frames++;
-            float time = _fpsClock.getElapsedTime().asSeconds();
-            if (time >= 1.0f) {
-                _data->FPS = _frames;
+        _frames++;
+        float time = _fpsClock.getElapsedTime().asSeconds();
+        if (time >= 1.0f) {
+            _data->FPS = _frames;
 
-                _fpsClock.restart();
-                _frames = 0;
-            }
-#endif
+            _fpsClock.restart();
+            _frames = 0;
+        }
     }
+#endif
 }

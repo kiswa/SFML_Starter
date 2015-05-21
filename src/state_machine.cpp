@@ -12,9 +12,10 @@ namespace kg {
         _isRemoving = true;
     }
 
-    void StateMachine::checkStates() {
+    void StateMachine::processStateChanges() {
         if (_isRemoving && !_states.empty()) {
             _states.pop();
+
             if (!_states.empty()) {
                 _states.top()->resume();
             }
